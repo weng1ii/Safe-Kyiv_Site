@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
 
 	});
 
-	$("#effecttyped").typed({
+	$('#effecttyped').typed({
 	  strings:["Головна","Допоможіть"],
 	  typespeed:0,
 	  loop:true

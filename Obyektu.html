@@ -11,8 +11,48 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
     <link rel="stylesheet" href="snowflakes.css">
     <link rel="stylesheet" type="text/css" href="objects.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Об'єкти</title>
   </head>
+  <style type="text/css">
+    .card{
+        transition: all 0.5s ease;
+        cursor: pointer;
+        box-shadow: 0px 0px 6px -4px rgba(0, 0, 0, 0.75);
+        border-radius: 10px;
+    }
+    .card:hover{
+        box-shadow: 0px 0px 51px -36px rgba(0, 0, 0, 1);
+    }
+    #card{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .heart-button {
+      border: none;
+      background-color: transparent;
+      color: gray;
+      font-size: 1.9em;
+      cursor: pointer;
+      position: relative;
+      bottom: 10px;
+      right: -50px;
+    }
+
+    .heart-button:hover {
+      color: red;
+      position: relative;
+
+    }
+    .newmoving{
+        position: relative;
+        bottom:-8px;
+    }
+    #total-likes{
+        font-size: 22px;
+        color: grey;
+    }
+  </style>
   <body>
     <div class="snowflakes" aria-hidden="true">
       <div class="intro"></div>
@@ -55,7 +95,7 @@
   			<img 
   			class="d-inline-block align-top"
   			src="img/gerb.png"
-  			width="30" height="30" />
+  			width="30" height="30">
   		</a>
   		<div 
   			class="collapse navbar-collapse" 
@@ -108,151 +148,162 @@
   		</div>
   	</nav>
 
-    <div class="wrap">
-      <div class="search">
-        <input type="text" class="searchTerm" placeholder="What are you looking for?">
-        <button type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
+    <div class="padding">
+    <input type="text" class="form-control mt-3 mx-auto" id="myinput" placeholder="Пошук об'єктів" style="width: 60%; margin-bottom: .5rem; position: relative;">
+
+
+    <div class="containerr">
+        <h3 class="text-danger mt-5 text-center" id="para" style="display:none; position: relative;">Не знайдено культурних об'єктів за вашими критеріями</h3>
+        <div class="row mt-3" id="card">
+        </div>
     </div>
 
 
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        //filter array
+        let filterarray = [];
 
+        let galleryarray = 
+        [
+            {
+                id: 1,
+                name : "Софійський собор",
+                src: "sofiasobor.jpg",
+                desc: "Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО..."
 
-    <div class="padding"></div>
+            },
+            {
+                id: 2,
+                name : "Михайлівський Золотоверхий собор",
+                src: "mixaylovski.jpg",
+                desc: "Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО..."
 
-    <div class="container bootstrap snippets bootdey">
-        <div class="row">
-           <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="wp-block product">
-                    <figure>
-                        <img alt="" src="sofiasobor.jpg" class="img-responsive img-center images">
-                    </figure>
-                    <h2 class="product-title">Софійський собор</h2>
-                    <p>
-                    Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО...
-                    </p>
+            },
+            {
+                id: 3,
+                name : "Золоті Ворота",
+                src: "zoloti.jpg",
+                desc: "Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО..."
+
+            },
+            {
+                id: 4,
+                name : "Андріївський узвіз",
+                src: "andrychurch.jpg",
+                desc: "Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО..."
+
+            },
+            {
+                id: 5,
+                name : "Батьківщина-мати",
+                src: "batka.jpg",
+                desc: "Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО..."
+
+            },
+            {
+                id: 6,
+                name : "Будинок з химерами",
+                src: "bydinok.jpg",
+                desc: "Був закладений великим князем Ярославом Мудрим на початку XI століття. У 1990 році Софійський собор був внесений до списку Всесвітньої спадщини ЮНЕСКО..."
+
+            }
+        ]
+        // create a function to show gallery
+
+        showgallery(galleryarray);
+
+        function showgallery(currarray){
+
+            document.getElementById("card").innerText = "";
+
+            for(var i=0;i<currarray.length;i++){
+                document.getElementById("card").innerHTML += `
+                <div class="col-md-4 mt-3">
+                <div class="card p-3 ps-5 pe-5">
+                    <h4 class="text-capitalize text-center">${currarray[i].name}</h4>
+                    <img src="${currarray[i].src}" width="100%" height="320px"/>
+                    <p class="mt-2">${currarray[i].desc}</p>
                     <div class="wp-block-footer">
-                        <span class="price pull-left">Степінь руйнування: 5%</span>
+                        <div class="moving">
+                            <span class="price pull-left newmoving">Ступінь руйнування: 6%</span>
+                        </div>
                         <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right">
                             <span>Докладніше</span>
                         </a>
+                        <div class="heart-container">
+                            <button class="heart-button" data-id="${i}">
+                                 <span id="total-likes-${i}" class="total-likes">0</span>
+                                <i class="fa fa-heart"></i> 
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="wp-block product">
-                    <figure>
-                        <img alt="" src="mixaylovski.jpg" class="img-responsive img-center images">
-                    </figure>
-                    <h2 class="product-title">Михайлівський Золотоверхий собор</h2>
-                    <p>
-                    За часів радянської влади храм був повністю зруйнований. Після набуття Україною незалежності храм був заново відновлений...
-                    </p>
-                    <div class="wp-block-footer">
-                        <span class="price pull-left">Степінь руйнування: 2%</span>
-                        <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right">
-                            <span>Докладніше</span>
-                        </a>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="wp-block product">
-                    <figure>
-                        <img alt="" src="zoloti.jpg" class="img-responsive img-center images">
-                    </figure>
-                    <h2 class="product-title">Золоті Ворота</h2>
-                    <p>
-                    Це один з чотирьох входів у місто, який зберігся до наших часів. Оборонну споруду було зведено за правління Ярослава Мудрого...
-                    </p>
-                    <div class="wp-block-footer">
-                        <span class="price pull-left">Степінь руйнування: 3%</span>
-                        <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right">
-                            <span>Докладніше</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>                
+                `
+            }
+        } 
 
-    <div class="padding_small"></div>   
+        //live searching
 
-    <div class="container bootstrap snippets bootdey">
-        <div class="row">
-           <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="wp-block product">
-                    <figure>
-                        <img alt="" src="andrychurch.jpg" class="img-responsive img-center images">
-                    </figure>
-                    <h2 class="product-title">Андріївський узвіз</h2>
-                    <p>
-                    Це місце художників, театралів, любителів мистецтва і ремісників. Тут розташовані театри, дві оглядові гірки, замок «Річард Левине Серце»...
-                    </p>
-                    <div class="wp-block-footer">
-                        <span class="price pull-left">Степінь руйнування: 2%</span>
-                        <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right">
-                            <span>Докладніше</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="wp-block product">
-                    <figure>
-                        <img alt="" src="batka.jpg" class="img-responsive img-center images">
-                    </figure>
-                    <h2 class="product-title">Батьківщина-мати</h2>
-                    <p>
-                    Вона височіє над містом і нагадує про трагічні події Другої світової війни. Під цією спорудою знаходиться музей Великої Вітчизняної Війни...
-                    </p>
-                    <div class="wp-block-footer">
-                        <span class="price pull-left">Степінь руйнування: 2%</span>
-                        <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right">
-                            <span>Докладніше</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="wp-block product">
-                    <figure>
-                        <img alt="" src="bydinok.jpg" class="img-responsive img-center images">
-                    </figure>
-                    <h2 class="product-title">Будинок з химерами</h2>
-                    <p>
-                    Зведений у 1901-1903 роках за проектом архітектора Владислава Городецького. Цей будинок знаходиться на вулиці Банковій навпроти Адміністрації Президента України...
-                    </p>
-                    <div class="wp-block-footer">
-                        <span class="price pull-left">Степінь руйнування: 6%</span>
-                        <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right">
-                            <span>Докладніше</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  
+        document.getElementById("myinput").addEventListener("keyup", function(){
+            let text = document.getElementById("myinput").value;
 
-    <div class="padding_small"></div>  
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
+            filterarray = galleryarray.filter(function(a){
+                if(a.name.includes(text)){
+                    return a.name;
+                }
+            });
+            if(this.value ==""){
+                showgallery(galleryarray);
+            }
+            else{
+                if(filterarray == ""){
+                    document.getElementById("para").style.display = 'block';
+                    document.getElementById("card").innerHTML = "";
+                }
+                else{
+                    showgallery(filterarray);
+                    document.getElementById("para").style.display = 'none';
+                }
+            }
+        })
 
 
+
+
+
+//red
+
+    </script>
+    <script>
+        const heartButtons = document.querySelectorAll('.heart-button');
+
+        heartButtons.forEach(function(button) {
+          let isLiked = false;
+          const blockId = button.dataset.id;
+          const heartIcon = button.querySelector('.fa-heart');
+          const totalLikes = document.querySelector(`#total-likes-${blockId}`);
+          let likeCount = 0;
+
+          button.addEventListener('click', function() {
+            if (isLiked) {
+              heartIcon.style.color = 'gray';
+              isLiked = false;
+              likeCount--;
+            } else {
+              heartIcon.style.color = 'red';
+              isLiked = true;
+              likeCount++;
+            }
+
+            totalLikes.textContent = likeCount;
+          });
+        });
+
+    </script>
+    <script src="jQuery/jquery.min.js" type="text/javascript"></script>
+    <script src="jQuery/popper.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
   </body>
 </html>
