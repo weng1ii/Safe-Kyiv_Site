@@ -6,9 +6,9 @@ jQuery(document).ready(function(){
 
 	});
 
-	$('#effecttyped').typed({
-	  strings:["Головна","Допоможіть"],
-	  typespeed:0,
-	  loop:true
-	});	
+//	$('#effecttyped').typed({
+//	  strings:["Головна","Допоможіть"],
+//	  typespeed:0,
+//	  loop:true
+//	});	
 });
