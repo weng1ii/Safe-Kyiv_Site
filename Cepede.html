@@ -89,6 +89,13 @@
   				</li>
   			</ul>
   		</div>
+      <div onclick="buttonmyFunction()" class="dropbtn dropdown containera ml-auto">
+          <a class="navbar-brand mb-0 h1 bgbelow"><i class="question">Мова</i></a> 
+          <div id="myDropdown" class="dropdown-content">
+              <a href="ENCepede.html"><strong>English</strong></a>
+              <a href="Cepede.html"><strong>Українська</strong></a>
+          </div>
+      </div>
   		<div class="containerfaq ml-auto" >
   		<a
   			href ="faq.html"
@@ -116,7 +123,27 @@
 
     <div class="padding"></div>
 
+    <script type="text/javascript">
+      /* When the user clicks on the button, 
+      toggle between hiding and showing the dropdown content */
+      function buttonmyFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
 
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }     
+    </script>    
 
     <script src="js/customScrollBar.js" type="text/javascript"></script>
     <script src="js/Main.js" type="text/javascript"></script>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
+    <link rel="stylesheet" href="snowflakes.css">
+    <link rel="stylesheet" type="text/css" href="objects.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Objects</title>
+  </head>
+  <style type="text/css">
+    .card{
+        transition: all 0.5s ease;
+        cursor: pointer;
+        box-shadow: 0px 0px 6px -4px rgba(0, 0, 0, 0.75);
+        border-radius: 10px;
+    }
+    .card:hover{
+        box-shadow: 0px 0px 51px -36px rgba(0, 0, 0, 1);
+    }
+    #card{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .heart-button {
+      border: none;
+      background-color: transparent;
+      color: gray;
+      font-size: 1.9em;
+      cursor: pointer;
+      position: relative;
+      bottom: 10px;
+      right: -40px;
+      position: relative;
+    }
+
+    .heart-button:hover {
+      color: red;
+      position: relative;
+
+    }
+    .newmoving{
+        position: relative;
+        bottom:-8px;
+    }
+    #total-likes{
+        font-size: 22px;
+        color: grey;
+    }
+    .heart-button .fa-heart {
+      color: grey;
+    }
+
+    .heart-button .fa-heart.liked {
+      color: red;
+    }
+    .padding_block {
+        width: 100%;
+        height: 20%;
+        position: relative;
+        bottom: -750px;
+    }
+    .paddred {
+        width: 100%;
+        position: relative;
+        bottom: -750px;
+        height: 10px;
+    }
+    .card img {
+        transition: 0.5s all ease-in-out;
+    }
+    .card:hover img {
+        transform: scale(1.05);
+    }
+    h5{
+        text-align: center;
+        font-weight: bold;
+    }
+    .butnx {
+        margin-right: auto;
+    }
+    .modal-title{
+        margin: auto;
+        width: 100%;
+    }
+    .imgmod {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+    .blockimg {
+        overflow: hidden;
+    }
+  </style>
+  <body>
+    <div class="snowflakes" aria-hidden="true">
+      <div class="intro"></div>
+      <div class="snowflake">
+      ❅
+      </div>
+      <div class="snowflake">
+      ❅
+      </div>
+      <div class="snowflake">
+      ❆
+      </div>
+      <div class="snowflake">
+      ❄
+      </div>
+      <div class="snowflake">
+      ❅
+      </div>
+      <div class="snowflake">
+      ❆
+      </div>
+      <div class="snowflake">
+      ❄
+      </div>
+      <div class="snowflake">
+      ❅
+      </div>
+      <div class="snowflake">
+      ❆
+      </div>
+      <div class="snowflake">
+      ❄
+      </div>
+    </div>   
+  	<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+  		<div class="container">
+  		<a
+  			href ="ENindex.html"
+  			class="navbar-brand mb-0 h1">
+  			<img 
+  			class="d-inline-block align-top"
+  			src="img/gerb.png"
+  			width="30" height="30">
+  		</a>
+  		<div 
+  			class="collapse navbar-collapse" 
+  			id="navbarNav">
+  			<ul class="navbar-nav">
+  				<li class="nav-item active">
+  					<a href="ENindex.html" class="nav-link">
+  						Main
+  					</a>
+  				</li>
+  				<li class="nav-item active">
+  					<a href="ENVazlivist.html" class="nav-link">
+  						About project
+  					</a>
+  				</li> 				
+  				<li class="nav-item active">
+  					<a href="ENObyektu.html" class="nav-link">
+  						Objects
+  					</a>
+  				</li> 
+  				<li class="nav-item active">
+  					<a href="ENNovynu.html" class="nav-link">
+  						Statistic
+  					</a>
+  				</li>  				
+  				<li class="nav-item active">
+  					<a href="ENCepede.html" class="nav-link">
+  						Center of Countering Disinformation
+  					</a>
+  				</li>
+  			</ul>
+  		</div>
+      <div onclick="buttonmyFunction()" class="dropbtn dropdown containera ml-auto">
+        <a class="navbar-brand mb-0 h1 bgbelow"><i class="question">Language</i></a> 
+        <div id="myDropdown" class="dropdown-content">
+          <a href="ENObyektu.html"><strong>English</strong></a>
+          <a href="Obyektu.html"><strong>Українська</strong></a>
+        </div>
+      </div>
+  		<div class="containerfaq ml-auto" >
+  		<a
+  			href ="ENfaq.html"
+  			class="navbar-brand mb-0 h1"><i class="question">FAQ</i>
+  			<i class='bi bi-question-circle question'></i>
+  		</a>
+  		<button 
+  		type="button"
+  		data-bs-toggle="collapse"
+  		data-bs-target="#navbarNav"
+  		class="navbar-toggler"
+  		aria-controls="navbarNav"
+  		aria-expanded="false"
+  		aria-label="Toggle navigation"
+  		>
+  			<span class="navbar-toggler-icon"></span>
+  		</button>  		
+  		</div>
+  	</nav>
+
+    <!---Creative Page Scroll Progress Bar--->
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+
+
+
+    <!-- Modal1 -->
+    <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Saint Sophia Cathedral</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blockimg">
+                <img class="imgmod" src="sofiasobor.jpg">
+            </div>
+            Sophia Cathedral, or Sophia of Kyiv, is a landmark of the history and architecture of Ukraine, located on Sophia Square in the city of Kyiv. It was built in 1011–1018 by Prince Yaroslav of Kyiv. Named after Saint Sophia. It had the status of a cathedral. It was intermittently the residence of Kyiv metropolitans (Orthodox and Union). Until the 13th century, it was used as the main church of Russia, the burial place of the great princes of Kyiv. Chronicles were kept at the cathedral, and the first library was created. Declined in the 14th century. Restored by the efforts of Metropolitan Peter Mohyla and Hetman Ivan Mazepa.
+          </div>
+          <div class="modal-body-interest modal-body">
+            According to historical sources, the founder of the cathedral was Prince Yaroslav the Wise of Kyiv. Other sources connect the founding of the cathedral with the name of Volodymyr the Great. Metropolitan Hilarion of Kyiv, a contemporary of the construction of the cathedral, in his "Words about Law and Grace", mentioning Sophia Cathedral, says that in its creation, Yaroslav completed the work of his father Volodymyr; the German bishop Titmar of Merseburg mentions the active Sophia Monastery in Kyiv in 1018. In recent years, the hypothesis that Sofia of Kyiv was founded by Prince Volodymyr has gained popularity.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary butnx" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Support the monument</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal2 -->
+    <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">St. Michael's Golden Domed Cathedral</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blockimg">
+                <img class="imgmod" src="mixaylovski.jpg">
+            </div>
+            More than 900 years ago, on July 11, the St. Michael's Cathedral was laid. The shrine has a long and confusing history, studying which you begin to better understand the history of Kyiv, Ukraine. Several times the temple was on the verge of existence, but each time it was revived. Unbelievably, Mykhailivsky managed to revive even after the explosions rang out...
+          </div>
+          <div class="modal-body-interest modal-body">
+            On July 1, 1108, Svyatopolk Izyaslavovich laid the foundation for the construction of a new church in Kyiv. It is believed that in this way the prince wanted to celebrate the victory over the Polovtsy and to give thanks to Archangel Michael, the helmsman of the heavenly army.
+            The new shrine was built either next to it or on the site of another temple, which was built by Svyatopolk's father - Izyaslav. It is interesting that the temples have one common feature - both are named after the founders.
+            The fact is that Izyaslav took the name Dmytro at the time of his baptism, so his temple was Dmitrivskyi. And Svyatopolk chose the name Mykhailo, hence the Mykhailo Cathedral. Thus, the prince hit two targets with one shot: he supposedly built a shrine in honor of the main archangel, but he did not forget about himself either.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary butnx" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Support the monument</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal3 -->
+    <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Golden Gate</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blockimg">
+                <img class="imgmod" src="zoloti.jpg">
+            </div>
+            The Golden Gate of Kyiv was built during the reign of Prince Yaroslav the Wise. This is the oldest Kyiv-Russian structure that has survived to this day. The Golden Gate is a tower that for years protected Kyiv from enemy attacks. Now this architectural object is a symbol of the capital.
+          </div>
+          <div class="modal-body-interest modal-body">
+            The Golden Gate is a fortress tower with a passage of up to 7.5 m. The height of the walls reaches 9.5 m.
+            The ruins of the Golden Gate were underground for about 80 years. Excavations of the Golden Gate began in 1832 at the initiative of archaeologist K. Lokhvytskyi.
+            The gate was the main entrance to the capital. None of the invaders ever managed to enter the city through them. Khan Batia's hordes partially destroyed them in 1240, but at the same time they entered the city from the side of the Cave Gate (in the area of the modern Maidan).
+            Near the Golden Gate in 1648, the people of Kyiv met Hetman Bohdan Khmelnytsky, who returned with victory after the Battle of Yellow Waters.
+            The gates were built using the technique of mixed masonry - layers of stones alternated with rows of burnt bricks (plinths). Masonry can be seen on the front side of the Gate.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary butnx" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Support the monument</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal4 -->
+    <div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Andrew's Descent</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blockimg">
+                <img class="imgmod controlsizze" src="andrychurch.jpg">
+            </div>
+            Andriiivsky Uzviz is the second most popular street in Kyiv after Khreshchatyk, which leads from Volodymyrska Street to Desyatynnaya and Kontraktova Squares, located in Podil. In the days of Kyivan Rus, Andriyivsky Uzviz was the shortest way from the upper city, where the Golden Gate and Sophia of Kyiv were located, to the lower city - to Podil, where there was a city port and craft quarters. At the beginning of the 18th century, by order of the Kyiv governor, the road was widened, and now even loaded carts pulled by oxen could pass here.
+          </div>
+          <div class="modal-body-interest modal-body">
+            Засновником собору, як вказують літописні джерела, був київський князь Ярослав Мудрий. Інші джерела пов'язують заснування собору з іменем Володимира Великого. Сучасник будівництва собору митрополит Іларіон Київський у своєму «Слові про Закон і Благодать», згадуючи Софійський собор, говорить, що в його створенні Ярослав завершив справу свого батька Володимира; німецький єпископ Тітмар Мерзебурзький згадує під 1018 роком дійовий Софійський монастир у Києві. Останніми роками набула популярності гіпотеза про заснування Софії Київської князем Володимиром.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary butnx" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Support the monument</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal5 -->
+    <div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Motherland Monument</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blockimg">
+                <img class="imgmod" src="batka.jpg">
+            </div>
+            A unique hallmark of Kyiv is the "Motherland-Mother" monument, which crowns the main building of the Memorial Complex. The author of the monument is the sculptor Vasyl Borodai. Sculptors, architects, and a large group of other specialists, scientists, and workers from various fields participated in the creation of the building.
+            The idea was implemented by the Kyiv factory named after Paris Commune. Long-term experiments proved that the monument should be built from a sheet of stainless steel one and a half millimeters thick.
+          </div>
+          <div class="modal-body-interest modal-body">
+            Solid metal sculptures were not practiced in the world at that time, therefore, there was no experience in their creation, so there was a need to independently solve a number of important problems, which were successfully implemented.
+            The monument impresses with its grandeur. The figure of a woman with a shield and a sword in her hands is installed on a 40-meter-high conical pedestal (total height - 102 m, weight about 500 tons), the height of the sculpture is 62 m.
+            The sculpture "Motherland-Mother" is a unique all-welded steel structure, which consists of three layers: the main steel frame weighing more than 280 tons, the auxiliary frame with cladding weighing 108 tons, and the cladding itself made of one and a half millimeter stainless steel weighing 90 tons, which is made of 27 multi-ton blocks The special welding method was developed by the Institute of Electric Welding named after E.O. Paton. In total, about 30 km of welding seams were laid during the installation. When you look at the sculpture, it is hard to believe that the small shield has a size of 12x8 m; the sword is 16 m long. There is a special device on the point of the sword for damping wind load fluctuations.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary butnx" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Support the monument</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal6 -->
+    <div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">House with Chimaeras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="blockimg">
+                <img class="imgmod" src="bydinok.jpg">
+            </div>
+            The house with chimeras is the most famous building in Kyiv in the Art Nouveau style. In the capital, this is the first house that was built from cement and brick "without a roof" (a high parapet on the roof hid the roof). The building is built in the shape of a cube and has 6 floors when viewed from Franka Square, and only 3 from Bankova Square. Only 1 apartment was located on each floor. From the very beginning, it was built for rental income.
+          </div>
+          <div class="modal-body-interest modal-body">
+            Interiors and exterior design are not repeated anywhere else. The facades are decorated with sculptures on hunting and mythological themes - marine inhabitants, various animals, reptiles. Looking at the parapet of the roof, you can see Nereids holding tridents, and instead of hair, they have fantastic flowers and leaves. Big frogs are sitting nearby and dolphins' tails are sticking up. Eagles spread their wings wide, lizards run along the columns. The heads of antelopes, rhinoceroses, crocodiles and elephants, whose trunks are drains, are embedded in the walls.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary butnx" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Support the monument</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="padding">
+    <input type="text" class="form-control mt-3 mx-auto" id="myinput" placeholder="Search for objects..." style="width: 80%; margin-bottom: .5rem; position: relative;">
+
+
+    <div class="containerr">
+        <h3 class="text-danger mt-5 text-center" id="para" style="display:none; position: relative;">No cultural objects were found according to your criteria</h3>
+        <div class="row mt-3" id="card">
+        </div>
+    </div>
+
+
+
+    <div class="padding_small"></div>  
+    <div class="padding_block">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled" id="previous-page">
+              <a class="page-link" href="#" tabindex="-1">Back</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#" data-page="1">1</a></li>
+            <li class="page-item"><a class="page-link" href="#" data-page="2">2</a></li>
+            <li class="page-item"><a class="page-link" href="#" data-page="3">3</a></li>
+            <li class="page-item" id="next-page">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+
+    <div class="padding_small paddred"></div> 
+
+    <script type="text/javascript">
+        //filter array
+        let filterarray = [];
+
+        let galleryarray = 
+        [
+            {
+                id: 1,
+                name : "Saint Sophia Cathedral",
+                src: "sofiasobor.jpg",
+                desc: "It was founded by Grand Duke Yaroslav the Wise at the beginning of the 11th century. In 1990, Hagia Sophia was included in the UNESCO World Heritage List...",
+                modalurl: "#Modal1"
+
+            },
+            {
+                id: 2,
+                name : "St. Michael's Golden Domed Cathedral",
+                src: "mixaylovski.jpg",
+                desc: "During the Soviet rule, the temple was completely destroyed. After Ukraine gained its independence, the church was restored again...........................",
+                modalurl: "#Modal2"
+
+            },
+            {
+                id: 3,
+                name : "Golden Gate",
+                src: "zoloti.jpg",
+                desc: "This is one of the four entrances to the city that have survived to this day. The defensive structure was built during the reign of Yaroslav the Wise...................",
+                modalurl: "#Modal3"
+
+            },
+            {
+                id: 4,
+                name : "Andrew's Descent",
+                src: "andrychurch.jpg",
+                desc: "This is a place of artists, theatergoers, art lovers and craftsmen. There are theaters, two observation slides, the castle 'Richard the Lion Heart'................",
+                modalurl: "#Modal4"
+
+            },
+            {
+                id: 5,
+                name : "Motherland Monument",
+                src: "batka.jpg",
+                desc: "It rises above the city and reminds of the tragic events of the Second World War. Under this building is the museum of the Great Patriotic War............",
+                modalurl: "#Modal5"
+
+            },
+            {
+                id: 6,
+                name : "House with Chimaeras",
+                src: "bydinok.jpg",
+                desc: "It was built in 1901-1903 according to the project of the architect Vladyslav Horodetskyi. This building is located on Bankova Street opposite the Administration of the President of Ukraine...",
+                modalurl: "#Modal6"
+
+            }
+        ]
+        // create a function to show gallery
+
+        showgallery(galleryarray);
+
+        function showgallery(currarray){
+
+            document.getElementById("card").innerText = "";
+
+            for(var i=0;i<currarray.length;i++){
+                document.getElementById("card").innerHTML += `
+                <div class="col-md-4 mt-3">
+                <div class="card p-3 ps-5 pe-5">
+                    <h4 class="text-capitalize text-center">${currarray[i].name}</h4>
+                    <img src="${currarray[i].src}" width="100%" height="320px"/>
+                    <p class="mt-2">${currarray[i].desc}</p>
+                    <div class="wp-block-footer">
+                        <div class="moving">
+                            <span class="price pull-left newmoving">Degree of destruction: ${i}%</span>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-info btn-icon btn-cart pull-right" data-bs-toggle="modal" data-bs-target="${currarray[i].modalurl}">
+                            <span>Read more</span>
+                        </a>
+                        <div class="heart-container">
+                            <button class="heart-button" data-id="${i}">
+                                 <span id="total-likes-${i}" class="total-likes">0</span>
+                                <i class="fa fa-heart"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                `
+            }
+        }
+                                                                                                                                                                                                                                                          
+        //live searching
+
+        document.getElementById("myinput").addEventListener("keyup", function(){
+            let text = document.getElementById("myinput").value;
+
+            filterarray = galleryarray.filter(function(a){
+                if(a.name.includes(text)){
+                    return a.name;
+                }
+            });
+
+
+        if(filterarray.length === 0){ // додайте перевірку на наявність елементів у filterarray
+            document.getElementById("para").style.display = 'block';
+            document.getElementById("card").innerHTML = "";
+        }
+        else{
+            showgallery(filterarray);
+            document.getElementById("para").style.display = 'none';
+        }
+
+            if(this.value ==""){
+                showgallery(galleryarray);
+            }
+            else{
+                if(filterarray == ""){
+                    document.getElementById("para").style.display = 'block';
+                    document.getElementById("card").innerHTML = "";
+                }
+                else{
+                    showgallery(filterarray);
+                    document.getElementById("para").style.display = 'none';
+                }
+            }
+        })
+
+
+
+
+
+//red
+
+    </script>
+    <script>
+        // Отримання даних про кількість лайків з localStorage
+        function getLikes(id) {
+          const likes = localStorage.getItem(`likes-${id}`);
+          return likes ? parseInt(likes) : 0;
+        }
+
+        // Збереження даних про кількість лайків в localStorage
+        function saveLikes(id, likes) {
+          localStorage.setItem(`likes-${id}`, likes);
+        }
+
+        // Зміна кольору лайка при натисканні на кнопку
+        function toggleLikeColor(button) {
+          const heartIcon = button.querySelector(".fa-heart");
+          const isLiked = heartIcon.classList.contains("liked");
+          if (isLiked) {
+            heartIcon.classList.remove("liked");
+          } else {
+            heartIcon.classList.add("liked");
+          }
+        }
+
+        // Додавання обробника події при натисканні на кнопку лайка
+        document.querySelectorAll(".heart-button").forEach(button => {
+          const id = button.getAttribute("data-id");
+          const likesEl = document.getElementById(`total-likes-${id}`);
+          let likes = getLikes(id);
+
+          likesEl.innerHTML = likes;
+
+          button.addEventListener("click", () => {
+            const heartIcon = button.querySelector(".fa-heart");
+            const isLiked = heartIcon.classList.contains("liked");
+
+            if (isLiked) {
+              likes--;
+            } else {
+              likes++;
+            }
+
+            likesEl.innerHTML = likes;
+            saveLikes(id, likes);
+            toggleLikeColor(button);
+
+            // Обробка від'ємних значень
+            if (likes < 0) {
+              likes = 0;
+              likesEl.innerHTML = likes;
+              saveLikes(id, likes);
+            }
+          });
+
+          // Відображення коліру лайку з localStorage
+          const heartIcon = button.querySelector(".fa-heart");
+          const isLiked = getLikes(id) > 0;
+          if (isLiked) {
+            heartIcon.classList.add("liked");
+          }
+        });
+
+    </script>
+
+
+    <script type="text/javascript">
+      /* When the user clicks on the button, 
+      toggle between hiding and showing the dropdown content */
+      function buttonmyFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }     
+    </script>
+
+
+    <script src="js/customScrollBar.js" type="text/javascript"></script>
+
+    <script src="jQuery/jquery.min.js" type="text/javascript"></script>
+    <script src="jQuery/popper.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
+  </body>
+</html>
