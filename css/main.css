@@ -313,3 +313,6 @@ scrollbar {
 	position: relative;
 	pointer-events: none;
 }
+.card{
+	height: 563px;
+}
